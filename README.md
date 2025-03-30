@@ -15,3 +15,9 @@ To create project
 ```
 bun init 
 ```
+
+
+## To install Dependencies
+```
+bun install
+```
