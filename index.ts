@@ -11,7 +11,7 @@ export const getDelimitor = (input ?: string): string => {
     if(!input){
         return ""
     }
-    const regex = new RegExp(
+    const conditionRegex = new RegExp(
         [
             "^",
             "//", //  this is for //
@@ -22,18 +22,18 @@ export const getDelimitor = (input ?: string): string => {
             "$" // for end of regex
         ].join("")
     )
-    const matches = (input || '').match(regex);
-    const delimitors = matches ? matches[1] : "" // this contains `[` and `]`
-    if(delimitors){
-        const regex2 = new RegExp(
-            [
-                "\\[",
-                "(.*?)", // any
-                "\\]",
-            ].join(""), "g"
-        )
-        const matches2 = [...delimitors.matchAll(regex2)].map(m => m[1]); 
-        return matches2.join("");
+    const matches = (input || '').match(conditionRegex);
+    if(!matches) {
+        return ""
     }
-    return  delimitors
+    const delimitors = matches[1]  // this contains `[` and `]`
+    const delimitorsRegex = new RegExp(
+        [
+            "\\[",
+            "(.*?)", // any
+            "\\]",
+        ].join(""), "g"
+    )
+    const matchedDelimits = [...delimitors.matchAll(delimitorsRegex)].map(m => m[1]); 
+    return matchedDelimits.join("");
 }
