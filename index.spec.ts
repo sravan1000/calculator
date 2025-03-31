@@ -56,6 +56,10 @@ describe('Add function', () => {
     test("string with few negative number with different delimiter", () => {
         expect(() => add("-1*** -4***-10")).toThrowError("negative numbers not allowed -1,-4,-10");
     })
+
+    test('call with delimit expression `//[,]\\n 1,2`', () => {
+        expect(add("//[***][,]\n 1,2***3")).toStrictEqual(6)
+    })
 })
 
 
