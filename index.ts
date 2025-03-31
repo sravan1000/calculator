@@ -15,7 +15,9 @@ export const getDelimitor = (input ?: string): string => {
         [
             "^",
             "//", //  this is for //
-            "(.*)", // any
+            "(", // start of condition
+            ".*", // any
+            ")" , // end of condition
             "\\n", // for \n
             "$" // for end of regex
         ].join("")
