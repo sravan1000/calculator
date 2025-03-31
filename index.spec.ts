@@ -28,3 +28,7 @@ test('[Add] function call with a string with two values', () => {
 test('[Add] function call with a string with three values', () => {
     expect(add("1,5,1")).toStrictEqual(7)
 })
+
+test('[Add] function call with a string with two values and new line between', () => {
+    expect(add("1\n5")).toStrictEqual(6)
+})
