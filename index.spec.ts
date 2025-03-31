@@ -53,4 +53,8 @@ describe('Get Delimitor Function', () => {
     test('call with //[delimiter]\n', () => {
         expect(getDelimitor("//[delimiter]\n")).toStrictEqual("delimiter");
     })
+
+    test('call with //[delimiter][delimiter2]\n', () => {
+        expect(getDelimitor("//[delimiter][delimiter2]\n")).toStrictEqual("delimiterdelimiter2");
+    })
 })
