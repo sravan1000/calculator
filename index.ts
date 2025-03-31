@@ -8,6 +8,30 @@ export const add = (numbers ?: string): number => {
 }
 
 export const getDelimitor = (input ?: string): string => {
-    const match = (input || '').match(/^\/\/\[(.*)]\n/);
-    return match ? match[1] : ""
+    if(!input){
+        return ""
+    }
+    const regex = new RegExp(
+        [
+            "^",
+            "//", //  this is for //
+            "(.*)", // any
+            "\\n", // for \n
+            "$" // for end of regex
+        ].join("")
+    )
+    const matches = (input || '').match(regex);
+    const delimitors = matches ? matches[1] : "" // this contains `[` and `]`
+    if(delimitors){
+        const regex2 = new RegExp(
+            [
+                "\\[",
+                "(.*?)", // any
+                "\\]",
+            ].join(""), "g"
+        )
+        const matches2 = [...delimitors.matchAll(regex2)].map(m => m[1]); 
+        return matches2.join("");
+    }
+    return  delimitors
 }
