@@ -1,11 +1,20 @@
-export const add = (numbers?: string): number => {
-  const delimiterRegex = /[,\n]/;
-  if (!numbers) {
+// considering default delimit is `,`
+const DEFAULT_DE_LIMIT = ','
+
+export const add = (input?: string): number => {
+  // const delimiterRegex = /[,\n]/;
+  if (!input) {
     return 0;
   }
-  const delimitor = getDelimitor(numbers)
-  console.log('delimitor is', delimitor)
-  const total = numbers
+  const delimitor = getDelimitor(input) || DEFAULT_DE_LIMIT
+  const numbersString = input.replace(/\/\/(.*)\n/, "")
+  const delimiterRegex = new RegExp([
+    "[",
+    delimitor,
+    "\\n", 
+    "]"
+  ].join(""))
+  const total = numbersString
     .split(delimiterRegex)
     .reduce((p, c) => p + Number(c), 0);
   return total;
