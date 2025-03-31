@@ -42,6 +42,10 @@ describe('Add function', () => {
     test('call with a , and new line as delimitors', () => {
         expect(add(" 1 , \n 5 , 1 \n 2")).toStrictEqual(9)
     })
+
+    test('call with delimit condition `//[,]\n 1,2`', () => {
+        expect(add("//[,]\n 1,2")).toStrictEqual(3)
+    })
 })
 
 
