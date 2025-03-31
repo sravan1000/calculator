@@ -24,7 +24,6 @@ export const getDelimitor = (input?: string): string => {
       ".*", // any
       ")", // end of condition
       "\\n", // for \n
-      "$", // for end of regex
     ].join("")
   );
   const matches = (input || "").match(conditionRegex);
