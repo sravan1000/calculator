@@ -7,6 +7,7 @@ export const add = (numbers ?: string): number => {
     return total
 }
 
-export const getDelimitor = (numbers ?: string): string => {
-    return ""
+export const getDelimitor = (input ?: string): string => {
+    const match = (input || '').match(/^\/\/\[(.*)]\n/);
+    return match ? match[1] : ""
 }
