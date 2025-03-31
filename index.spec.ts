@@ -60,6 +60,11 @@ describe('Add function', () => {
     test('call with delimit expression `//[,]\\n 1,2`', () => {
         expect(add("//[***][,]\n 1,2***3")).toStrictEqual(6)
     })
+
+    // point 6 in https://osherove.com/tdd-kata-1/
+    test('ignoring numbers greater than 1000', () => {
+        expect(add("//[***][,]\n 1,2***3***1001")).toStrictEqual(6)
+    })
 })
 
 
