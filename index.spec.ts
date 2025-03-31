@@ -70,6 +70,6 @@ describe('Get Delimitor Function', () => {
 
 describe('Handle Negative numbers In String', () => {
     test("string with one negative number", () => {
-        expect(HandleNegativeNumbers("-1")).toThrow('negative numbers not allowed -1')
+        expect(() => HandleNegativeNumbers("-1")).toThrowError("negative numbers not allowed -1");
     })
 })
