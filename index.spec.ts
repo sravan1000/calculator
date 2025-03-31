@@ -36,3 +36,7 @@ test('[Add] function call with a string with two values and new line in between'
 test('[Add] function call with a string with two values and new line and spaces in between', () => {
     expect(add(" 1 \n 5 ")).toStrictEqual(6)
 })
+
+test('[Add] function call with a , and new line as delimitors', () => {
+    expect(add(" 1 , \n 5 , 1 \n 2")).toStrictEqual(9)
+})
