@@ -1,4 +1,5 @@
 import { expect, test, describe , it} from "bun:test";
+import {  HandleNegativeNumbers } from "./helpers/handleNegativeNumbers";
 import { GetDelimitor } from "./helpers/getDelimiter";
 import { add } from "./index";
 
@@ -64,5 +65,11 @@ describe('Get Delimitor Function', () => {
     })
     test('call with delimit condition `//[,]\\n 1,2`', () => {
         expect(GetDelimitor("//[,]\n 1,2")).toStrictEqual(',')
+    })
+})
+
+describe('Handle Negative numbers In String', () => {
+    test("string with one negative number", () => {
+        expect(HandleNegativeNumbers("-1")).toThrow('negative numbers not allowed -1')
     })
 })
