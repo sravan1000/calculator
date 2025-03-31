@@ -11,6 +11,12 @@ export const add = (input?: string): number => {
   const delimiterRegex = new RegExp(["[", delimitor, "\\n", "]"].join(""));
   const total = numbersString
     .split(delimiterRegex)
-    .reduce((p, c) => p + Number(c), 0);
+    .reduce((p, c) => {
+      if(Number(c) <= 1000) {
+        return p + Number(c)
+      }else {
+        return p
+      }
+    }, 0);
   return total;
 };
