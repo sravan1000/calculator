@@ -68,6 +68,7 @@ describe('Add function', () => {
 })
 
 
+// TODO: move to helpers/getDelimiter.spec.ts
 describe('Get Delimitor Function', () => {
     test('call with no props', () => {
         expect(GetDelimitor()).toStrictEqual(",")
@@ -93,6 +94,7 @@ describe('Get Delimitor Function', () => {
     })
 })
 
+// TODO: move to helpers/handleNegativeNumbers.spec.ts
 describe('Handle Negative numbers In String', () => {
     test("string with one negative number", () => {
         expect(() => HandleNegativeNumbers("-1")).toThrowError("negative numbers not allowed -1");
