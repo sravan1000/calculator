@@ -6,3 +6,7 @@ export const add = (numbers ?: string): number => {
     const total = numbers.split(delimiterRegex).reduce((p, c) => p + Number(c), 0)
     return total
 }
+
+export const getDelimitor = (numbers ?: string) => {
+
+}
