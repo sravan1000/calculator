@@ -21,3 +21,20 @@ bun init
 ```
 bun install
 ```
+
+## To Compile and build
+```
+bun run build
+```
+
+
+## To Run Tests
+
+```
+bun test
+```
+or
+
+```
+bun run test
+```
