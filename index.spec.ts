@@ -1,5 +1,6 @@
 import { expect, test, describe , it} from "bun:test";
-import { add, getDelimitor } from "./index";
+import { GetDelimitor } from "./helpers/getDelimiter";
+import { add } from "./index";
 
 describe('Add function', () => {
 
@@ -51,17 +52,17 @@ describe('Add function', () => {
 
 describe('Get Delimitor Function', () => {
     test('call with no props', () => {
-        expect(getDelimitor()).toStrictEqual("")
+        expect(GetDelimitor()).toStrictEqual(",")
     })
 
     test('call with //[delimiter]\n', () => {
-        expect(getDelimitor("//[delimiter]\n")).toStrictEqual("delimiter");
+        expect(GetDelimitor("//[delimiter]\n")).toStrictEqual("delimiter");
     })
 
     test('call with //[delimiter][delimiter2]\n', () => {
-        expect(getDelimitor("//[delimiter][delimiter2]\n")).toStrictEqual("delimiterdelimiter2");
+        expect(GetDelimitor("//[delimiter][delimiter2]\n")).toStrictEqual("delimiterdelimiter2");
     })
     test('call with delimit condition `//[,]\\n 1,2`', () => {
-        expect(getDelimitor("//[,]\n 1,2")).toStrictEqual(',')
+        expect(GetDelimitor("//[,]\n 1,2")).toStrictEqual(',')
     })
 })

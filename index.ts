@@ -1,55 +1,14 @@
-// considering default delimit is `,`
-const DEFAULT_DE_LIMIT = ','
+import { GetDelimitor } from "./helpers/getDelimiter";
 
 export const add = (input?: string): number => {
-  // const delimiterRegex = /[,\n]/;
   if (!input) {
     return 0;
   }
-  const delimitor = getDelimitor(input) || DEFAULT_DE_LIMIT
-  const numbersString = input.replace(/\/\/(.*)\n/, "")
-  const delimiterRegex = new RegExp([
-    "[",
-    delimitor,
-    "\\n", 
-    "]"
-  ].join(""))
+  const delimitor = GetDelimitor(input);
+  const numbersString = input.replace(/\/\/(.*)\n/, ""); // replace `//[delimit]\n` with ""
+  const delimiterRegex = new RegExp(["[", delimitor, "\\n", "]"].join(""));
   const total = numbersString
     .split(delimiterRegex)
     .reduce((p, c) => p + Number(c), 0);
   return total;
-};
-
-// condition to get delimitor "//[delimiter]\n[numbers…]"
-export const getDelimitor = (input?: string): string => {
-  if (!input) {
-    return "";
-  }
-  const conditionRegex = new RegExp(
-    [
-      "^",
-      "//", //  this is for //
-      "(", // start of condition
-      ".*", // any
-      ")", // end of condition
-      "\\n", // for \n
-    ].join("")
-  );
-  const matches = (input || "").match(conditionRegex);
-  if (!matches) {
-    return "";
-  }
-  const delimitors = matches[1]; // this contains `[` and `]`
-  const delimitorsRegex = new RegExp(
-    [
-      "\\[",
-      "(.*?)", // any
-      "\\]",
-    ].join(""),
-    "g"
-  );
-  const matchedDelimits = [...delimitors.matchAll(delimitorsRegex)].map(
-    (m) => m[1]
-  );
-  return matchedDelimits.join("");
 };
