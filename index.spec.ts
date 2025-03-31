@@ -72,4 +72,8 @@ describe('Handle Negative numbers In String', () => {
     test("string with one negative number", () => {
         expect(() => HandleNegativeNumbers("-1")).toThrowError("negative numbers not allowed -1");
     })
+
+    test("string with few negative number", () => {
+        expect(() => HandleNegativeNumbers("-1, -4")).toThrowError("negative numbers not allowed -1,-4");
+    })
 })
