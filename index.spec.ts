@@ -1,42 +1,45 @@
-import { expect, test } from "bun:test";
+import { expect, test, describe , it} from "bun:test";
 import { add } from "./index";
 
-test('[Add] function call with empty values', () => {
-    expect(add()).toStrictEqual(0)
-})
+describe('Add function', () => {
 
+    test('call with empty values', () => {
+        expect(add()).toStrictEqual(0)
+    })
 
-test('[Add] function call with a string number value', () => {
-    expect(add("1")).toStrictEqual(1)
-})
+    test('call with a string number value', () => {
+        expect(add("1")).toStrictEqual(1)
+    })
+    
+    test('call with empty string value', () => {
+        expect(add("")).toStrictEqual(0)
+    })
 
-test('[Add] function call with empty string value', () => {
-    expect(add("")).toStrictEqual(0)
-})
+    test('call with empty string value with spaces in it', () => {
+        expect(add("  ")).toStrictEqual(0)
+    })
 
-test('[Add] function call with empty string value with spaces in it', () => {
-    expect(add("  ")).toStrictEqual(0)
-})
-test('[Add] function call with a string with two values', () => {
-    expect(add("1,5")).toStrictEqual(6)
-})
+    test('call with a string with two values', () => {
+        expect(add("1,5")).toStrictEqual(6)
+    })
+   
+    test('call with a string with two values', () => {
+        expect(add("1,5,")).toStrictEqual(6)
+    })
 
-test('[Add] function call with a string with two values', () => {
-    expect(add("1,5,")).toStrictEqual(6)
-})
+    test('call with a string with three values', () => {
+        expect(add("1,5,1")).toStrictEqual(7)
+    })
 
-test('[Add] function call with a string with three values', () => {
-    expect(add("1,5,1")).toStrictEqual(7)
-})
-
-test('[Add] function call with a string with two values and new line in between', () => {
-    expect(add("1\n5")).toStrictEqual(6)
-})
-
-test('[Add] function call with a string with two values and new line and spaces in between', () => {
-    expect(add(" 1 \n 5 ")).toStrictEqual(6)
-})
-
-test('[Add] function call with a , and new line as delimitors', () => {
-    expect(add(" 1 , \n 5 , 1 \n 2")).toStrictEqual(9)
+    test('call with a string with two values and new line in between', () => {
+        expect(add("1\n5")).toStrictEqual(6)
+    })
+    
+    test('call with a string with two values and new line and spaces in between', () => {
+        expect(add(" 1 \n 5 ")).toStrictEqual(6)
+    })
+    
+    test('call with a , and new line as delimitors', () => {
+        expect(add(" 1 , \n 5 , 1 \n 2")).toStrictEqual(9)
+    })
 })
