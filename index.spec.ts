@@ -74,6 +74,10 @@ describe('Get Delimitor Function', () => {
     test('call with delimit condition `//[,]\\n 1,2`', () => {
         expect(GetDelimitor("//[,]\n 1,2")).toStrictEqual(',')
     })
+
+    test('handle any length of delimiters', () => {
+        expect(GetDelimitor("//[***]\n 1***2")).toStrictEqual('***')
+    })
 })
 
 describe('Handle Negative numbers In String', () => {
