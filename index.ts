@@ -3,6 +3,8 @@ export const add = (numbers?: string): number => {
   if (!numbers) {
     return 0;
   }
+  const delimitor = getDelimitor(numbers)
+  console.log('delimitor is', delimitor)
   const total = numbers
     .split(delimiterRegex)
     .reduce((p, c) => p + Number(c), 0);

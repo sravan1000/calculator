@@ -42,10 +42,6 @@ describe('Add function', () => {
     test('call with a , and new line as delimitors', () => {
         expect(add(" 1 , \n 5 , 1 \n 2")).toStrictEqual(9)
     })
-
-    test('call with delimit condition `//[,]\n 1,2`', () => {
-        expect(add("//[,]\n 1,2")).toStrictEqual(3)
-    })
 })
 
 
@@ -60,5 +56,8 @@ describe('Get Delimitor Function', () => {
 
     test('call with //[delimiter][delimiter2]\n', () => {
         expect(getDelimitor("//[delimiter][delimiter2]\n")).toStrictEqual("delimiterdelimiter2");
+    })
+    test('call with delimit condition `//[,]\\n 1,2`', () => {
+        expect(getDelimitor("//[,]\n 1,2")).toStrictEqual(',')
     })
 })
