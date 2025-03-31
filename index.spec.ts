@@ -20,3 +20,11 @@ test('[Add] function call with empty string value with spaces in it', () => {
 test('[Add] function call with a string with two values', () => {
     expect(add("1,5")).toStrictEqual(6)
 })
+
+test('[Add] function call with a string with two values', () => {
+    expect(add("1,5,")).toStrictEqual(6)
+})
+
+test('[Add] function call with a string with three values', () => {
+    expect(add("1,5,1")).toStrictEqual(7)
+})
