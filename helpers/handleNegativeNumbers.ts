@@ -1,6 +1,7 @@
 export const HandleNegativeNumbers = (input: string) => {
     const regex = new RegExp([
-        "-\\d" // negative digits
+        "-\\d", // negative digits
+        "+" // to check one or more
     ].join(""), "g")
     const negatives = input.match(regex) || [];
     if (negatives?.length) {
