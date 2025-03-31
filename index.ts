@@ -7,6 +7,6 @@ export const add = (numbers ?: string): number => {
     return total
 }
 
-export const getDelimitor = (numbers ?: string) => {
-
+export const getDelimitor = (numbers ?: string): string => {
+    return ""
 }
