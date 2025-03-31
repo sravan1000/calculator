@@ -48,6 +48,11 @@ describe('Add function', () => {
     test('call with delimit expression `//[,]\\n 1,2`', () => {
         expect(add("//[,]\n 1,2")).toStrictEqual(3)
     })
+
+    test("call string with one negative number", () => {
+        expect(() => add("-1")).toThrowError("negative numbers not allowed -1");
+    })
+
 })
 
 
