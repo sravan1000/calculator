@@ -49,4 +49,8 @@ describe('Get Delimitor Function', () => {
     test('call with no props', () => {
         expect(getDelimitor()).toStrictEqual("")
     })
+
+    test('call with //[delimiter]\n', () => {
+        expect(getDelimitor("//[delimiter]\n")).toStrictEqual("delimiter");
+    })
 })
