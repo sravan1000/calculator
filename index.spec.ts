@@ -1,5 +1,5 @@
 import { expect, test, describe , it} from "bun:test";
-import { add } from "./index";
+import { add, getDelimitor } from "./index";
 
 describe('Add function', () => {
 
@@ -41,5 +41,12 @@ describe('Add function', () => {
     
     test('call with a , and new line as delimitors', () => {
         expect(add(" 1 , \n 5 , 1 \n 2")).toStrictEqual(9)
+    })
+})
+
+
+describe('Get Delimitor Function', () => {
+    test('call with no props', () => {
+        expect(getDelimitor()).toStrictEqual("")
     })
 })
